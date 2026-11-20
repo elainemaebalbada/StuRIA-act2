@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-forest: #193D30;
+  --color-deep-green: #285642;
+  --color-sage: #A5B9A8;
+  --color-ivory: #F5F5F0;
+  --color-mist: #E8EDE7;
+  --color-charcoal: #252D28;
+  --color-muted: #737D76;
+}
+
+:root {
+  font-family: var(--font-body);
+  color: #252D28;
+  background: #F5F5F0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  background: #F5F5F0;
+  color: #252D28;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+
+.reveal {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 0.7s ease,
+    translate 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}
+
+
+/* Student Card Hover Animation */
+.student-card {
+  transform: translateY(0);
+  transition:
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 550ms ease,
+    border-color 400ms ease;
+}
+
+.student-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 20px 40px rgba(25, 61, 48, 0.12);
+  border-color: #A5B9A8;
+}
+
+/* Student Image Hover Animation */
+.student-card-image {
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.student-card:hover .student-card-image {
+  transform: scale(1.06);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .student-card,
+  .student-card-image {
+    transition: none;
+  }
+
+  .student-card:hover,
+  .student-card:hover .student-card-image {
+    transform: none;
+  }
+}
+
+
+/* Info Card Hover Animation */
+.info-card {
+  transition:
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 550ms ease,
+    border-color 400ms ease;
+}
+
+.info-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 20px 40px rgba(25, 61, 48, 0.12);
+  border-color: #A5B9A8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-card {
+    transition: none;
+  }
+
+  .info-card:hover {
+    transform: none;
+  }
+}
